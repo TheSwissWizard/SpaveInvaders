@@ -1,4 +1,5 @@
-import game.Board;
+package game;
+
 import util.Commons;
 
 import java.awt.EventQueue;
@@ -9,6 +10,7 @@ public class SpaceInvaders extends JFrame  {
     public SpaceInvaders() {
 
         init();
+
     }
 
     private void init() {
@@ -21,14 +23,5 @@ public class SpaceInvaders extends JFrame  {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-    }
-
-    public static void main(String[] args) {
-
-        EventQueue.invokeLater(() -> {
-
-            SpaceInvaders ex = new SpaceInvaders();
-            ex.setVisible(true);
-        });
     }
 }
