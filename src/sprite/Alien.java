@@ -18,7 +18,7 @@ public class Alien extends Sprite {
 
         this.bomb = new Bomb(x, y);
 
-        ImageIcon imageIcon = new ImageIcon("src/images/alien.png");
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/alien.png"));
 
         super.setImage(imageIcon.getImage());
     }

@@ -31,7 +31,7 @@ public class Board extends JPanel {
     private int deaths = 0;
 
     private boolean inGame = true;
-    private final String explosionImage = "src/images/explosion.png";
+    private final String explosionImage = "/images/explosion.png";
     private String message = Commons.MESSAGE_OVER;
 
     private Timer timer;
@@ -210,7 +210,7 @@ public class Board extends JPanel {
                             && shotY >= (alienY)
                             && shotY <= (alienY + Commons.ALIEN_HEIGHT)) {
 
-                        ImageIcon imageIcon = new ImageIcon(explosionImage);
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource(explosionImage));
                         alien.setImage(imageIcon.getImage());
                         alien.setDying(true);
                         this.deaths++;

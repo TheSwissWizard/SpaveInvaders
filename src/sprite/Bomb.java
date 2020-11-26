@@ -18,7 +18,7 @@ public class Bomb extends Sprite {
         super.x = x;
         super.y = y;
 
-        ImageIcon imageIcon = new ImageIcon("src/images/bomb.png");
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/bomb.png"));
         setImage(imageIcon.getImage());
     }
 
