@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Bomb extends Sprite {
 
-    private boolean destroyed;
+    private boolean isDestroyed;
 
     public Bomb(int x, int y) {
 
@@ -23,12 +23,10 @@ public class Bomb extends Sprite {
     }
 
     public void setDestroyed(boolean destroyed) {
-
-        this.destroyed = destroyed;
+        this.isDestroyed = destroyed;
     }
 
     public boolean isDestroyed() {
-
-        return destroyed;
+        return isDestroyed;
     }
 }

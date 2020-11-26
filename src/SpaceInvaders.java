@@ -7,26 +7,26 @@ public class SpaceInvaders extends JFrame  {
 
     public SpaceInvaders() {
 
-        initUI();
+        init();
     }
 
-    private void initUI() {
+    private void init() {
 
-        add(new Board());
+        this.add(new Board());
 
-        setTitle("Space Invaders");
-        setSize(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
+        this.setTitle("Space Invaders");
+        this.setSize(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
-        setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new SpaceInvaders();
+            SpaceInvaders ex = new SpaceInvaders();
             ex.setVisible(true);
         });
     }

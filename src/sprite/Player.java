@@ -12,7 +12,6 @@ public class Player extends Sprite {
     private final int moveSpeed = 2;
 
     public Player() {
-
         init();
     }
 
@@ -65,7 +64,7 @@ public class Player extends Sprite {
     }
 
     /**
-     * Sets {@link Sprite#dx} to 0 after key got released again
+     * Sets {@link Sprite#dx} (delta x) to 0 after key got released again
      * @param e {@link KeyEvent} - key got released
      */
     public void keyReleased(KeyEvent e) {

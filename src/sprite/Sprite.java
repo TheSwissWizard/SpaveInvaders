@@ -6,25 +6,25 @@ public class Sprite {
 
     private boolean visible;
     private Image image;
-    private boolean dying;
+    private boolean isDying;
 
-    int x;
-    int y;
-    int dx;
+    protected int x;
+    protected int y;
+    protected int dx;
 
     public Sprite() {
 
-        visible = true;
+        this.visible = true;
     }
 
     public void die() {
 
-        visible = false;
+        this.visible = false;
     }
 
     public boolean isVisible() {
 
-        return visible;
+        return this.visible;
     }
 
     protected void setVisible(boolean visible) {
@@ -59,16 +59,16 @@ public class Sprite {
 
     public int getX() {
 
-        return x;
+        return this.x;
     }
 
     public void setDying(boolean dying) {
 
-        this.dying = dying;
+        this.isDying = dying;
     }
 
     public boolean isDying() {
 
-        return this.dying;
+        return this.isDying;
     }
 }

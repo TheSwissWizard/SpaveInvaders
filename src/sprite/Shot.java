@@ -9,19 +9,16 @@ public class Shot extends Sprite {
 
     public Shot(int x, int y) {
 
-        initShot(x, y);
+        init(x, y);
     }
 
-    private void initShot(int x, int y) {
+    private void init(int x, int y) {
 
-        var shotImg = "src/images/shot.png";
-        var ii = new ImageIcon(shotImg);
-        setImage(ii.getImage());
+        ImageIcon imageIcon = new ImageIcon("src/images/shot.png");
+        setImage(imageIcon.getImage());
 
-        int H_SPACE = 6;
-        setX(x + H_SPACE);
+        super.setX(x + 6);
 
-        int V_SPACE = 1;
-        setY(y - V_SPACE);
+        super.setY(y - 1);
     }
 }
