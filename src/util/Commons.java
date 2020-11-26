@@ -13,13 +13,14 @@ public final class Commons {
     public static final int BOMB_SPEED = 1;
 
     public static final int SHOT_SPEED = 4;
+    public static final int SHOT_MAX = 1;
 
     public static final int ALIEN_HEIGHT = 12;
     public static final int ALIEN_WIDTH = 12;
     public static final int ALIEN_INIT_X = 150;
     public static final int ALIEN_INIT_Y = 5;
-    public static final int ALIEN_COLUMNS = 4;
-    public static final int ALIEN_ROWS = 6;
+    public static final int ALIEN_COLUMNS = 6;
+    public static final int ALIEN_ROWS = 4;
     public static final int ALIEN_DOWN_SPEED = 15;
     public static final int ALIENS_TO_DESTROY = ALIEN_COLUMNS * ALIEN_ROWS;
 

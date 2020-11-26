@@ -58,8 +58,8 @@ public class Board extends JPanel {
 
         this.aliens = new ArrayList<>();
 
-        for (int i = 0; i < Commons.ALIEN_COLUMNS; i++) {
-            for (int j = 0; j < Commons.ALIEN_ROWS; j++) {
+        for (int i = 0; i < Commons.ALIEN_ROWS; i++) {
+            for (int j = 0; j < Commons.ALIEN_COLUMNS; j++) {
 
                 var alien = new Alien(Commons.ALIEN_INIT_X + (Commons.ALIEN_WIDTH + 6) * j,
                         Commons.ALIEN_INIT_Y + (Commons.ALIEN_WIDTH + 6) * i);
