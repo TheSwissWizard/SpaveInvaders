@@ -5,6 +5,7 @@ import entity.Shot;
 import game.Board;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -52,6 +53,7 @@ public class TAdapter extends KeyAdapter {
             }else {
                 this.board.setPaused(false);
                 this.board.getTimer().start();
+
             }
         }
     }
