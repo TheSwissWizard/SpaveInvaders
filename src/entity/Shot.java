@@ -1,8 +1,8 @@
-package sprite;
+package entity;
 
 import javax.swing.ImageIcon;
 
-public class Shot extends Sprite {
+public class Shot extends Entity {
 
     public Shot() {
     }

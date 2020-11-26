@@ -1,8 +1,8 @@
-package sprite;
+package entity;
 
 import javax.swing.*;
 
-public class Bomb extends Sprite {
+public class Bomb extends Entity {
 
     private boolean isDestroyed;
 

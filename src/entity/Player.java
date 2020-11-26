@@ -1,4 +1,4 @@
-package sprite;
+package entity;
 
 
 import util.Commons;
@@ -6,7 +6,7 @@ import util.Commons;
 import javax.swing.ImageIcon;
 import java.awt.event.KeyEvent;
 
-public class Player extends Sprite {
+public class Player extends Entity {
 
     private int width;
     private final int moveSpeed = 2;
@@ -27,7 +27,7 @@ public class Player extends Sprite {
     }
 
     /**
-     * Sets {@link Sprite#x} (x position) according to {@link Sprite#dx} (delta x)
+     * Sets {@link Entity#x} (x position) according to {@link Entity#dx} (delta x)
      */
     public void move() {
 
@@ -45,7 +45,7 @@ public class Player extends Sprite {
     }
 
     /**
-     * Sets {@link Sprite#dx} (delta x) depending on what key got pressed
+     * Sets {@link Entity#dx} (delta x) depending on what key got pressed
      * @param e KeyEvent - the key that got pressed
      */
     public void keyPressed(KeyEvent e) {
@@ -64,7 +64,7 @@ public class Player extends Sprite {
     }
 
     /**
-     * Sets {@link Sprite#dx} (delta x) to 0 after key got released again
+     * Sets {@link Entity#dx} (delta x) to 0 after key got released again
      * @param e {@link KeyEvent} - key got released
      */
     public void keyReleased(KeyEvent e) {

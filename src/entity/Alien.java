@@ -1,8 +1,8 @@
-package sprite;
+package entity;
 
 import javax.swing.ImageIcon;
 
-public class Alien extends Sprite {
+public class Alien extends Entity {
 
     private Bomb bomb;
 

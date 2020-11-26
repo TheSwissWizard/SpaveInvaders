@@ -1,3 +1,4 @@
+import game.Board;
 import util.Commons;
 
 import java.awt.EventQueue;

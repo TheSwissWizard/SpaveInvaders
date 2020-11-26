@@ -1,21 +1,19 @@
-import sprite.Alien;
-import sprite.Bomb;
-import sprite.Player;
-import sprite.Shot;
+package game;
+
+import entity.Alien;
+import entity.Bomb;
+import entity.Player;
+import entity.Shot;
 import util.Commons;
+import util.GameCycle;
+import util.TAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -36,6 +34,8 @@ public class Board extends JPanel {
 
     private Timer timer;
 
+    private boolean isPaused = false;
+
     public Board() {
 
         init();
@@ -44,12 +44,12 @@ public class Board extends JPanel {
 
     private void init() {
 
-        this.addKeyListener(new TAdapter());
+        this.addKeyListener(new TAdapter(this));
         this.setFocusable(true);
         this.d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
         this.setBackground(Color.black);
 
-        this.timer = new Timer(Commons.DELAY, new GameCycle());
+        this.timer = new Timer(Commons.DELAY, new GameCycle(this));
         this.timer.start();
     }
 
@@ -61,8 +61,8 @@ public class Board extends JPanel {
         for (int i = 0; i < Commons.ALIEN_COLUMNS; i++) {
             for (int j = 0; j < Commons.ALIEN_ROWS; j++) {
 
-                var alien = new Alien(Commons.ALIEN_INIT_X + 18 * j,
-                        Commons.ALIEN_INIT_Y + 18 * i);
+                var alien = new Alien(Commons.ALIEN_INIT_X + (Commons.ALIEN_WIDTH + 6) * j,
+                        Commons.ALIEN_INIT_Y + (Commons.ALIEN_WIDTH + 6) * i);
                 this.aliens.add(alien);
             }
         }
@@ -172,8 +172,8 @@ public class Board extends JPanel {
         g.setColor(Color.white);
         g.drawRect(50, Commons.BOARD_WIDTH / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
 
-        var small = new Font("Helvetica", Font.BOLD, 14);
-        var fontMetrics = this.getFontMetrics(small);
+        Font small = new Font("Helvetica", Font.BOLD, 14);
+        FontMetrics fontMetrics = this.getFontMetrics(small);
 
         g.setColor(Color.white);
         g.setFont(small);
@@ -309,49 +309,37 @@ public class Board extends JPanel {
         }
     }
 
-    private void doGameCycle() {
+    public void doGameCycle() {
 
         update();
         repaint();
     }
 
-    private class GameCycle implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            doGameCycle();
-        }
+    public void setPaused(boolean paused) {
+        isPaused = paused;
     }
 
-    private class TAdapter extends KeyAdapter {
+    public boolean isPaused() {
+        return isPaused;
+    }
 
-        @Override
-        public void keyReleased(KeyEvent e) {
+    public Shot getShot() {
+        return shot;
+    }
 
-            player.keyReleased(e);
-        }
+    public void setShot(Shot shot) {
+        this.shot = shot;
+    }
 
-        @Override
-        public void keyPressed(KeyEvent e) {
+    public boolean isInGame() {
+        return inGame;
+    }
 
-            player.keyPressed(e);
+    public Player getPlayer() {
+        return player;
+    }
 
-            int x = player.getX();
-            int y = player.getY();
-
-            int key = e.getKeyCode();
-
-            if (key == KeyEvent.VK_SPACE) {
-
-                if (inGame) {
-
-                    if (!shot.isVisible()) {
-
-                        shot = new Shot(x, y);
-                    }
-                }
-            }
-        }
+    public Timer getTimer() {
+        return timer;
     }
 }
