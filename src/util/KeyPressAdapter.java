@@ -2,18 +2,17 @@ package util;
 
 import entity.Player;
 import entity.Shot;
+
 import game.Board;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class TAdapter extends KeyAdapter {
+public class KeyPressAdapter extends KeyAdapter {
 
     private Board board;
 
-    public TAdapter(Board board){
+    public KeyPressAdapter(Board board){
         this.board = board;
     }
 

@@ -6,14 +6,10 @@ import entity.Player;
 import entity.Shot;
 import util.Commons;
 import util.GameCycle;
-import util.TAdapter;
+import util.KeyPressAdapter;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -36,6 +32,8 @@ public class Board extends JPanel {
 
     private boolean isPaused = false;
 
+    private JButton restartButton;
+
     public Board() {
 
         init();
@@ -44,7 +42,7 @@ public class Board extends JPanel {
 
     private void init() {
 
-        this.addKeyListener(new TAdapter(this));
+        this.addKeyListener(new KeyPressAdapter(this));
         this.setFocusable(true);
         this.d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
         this.setBackground(Color.black);
@@ -133,7 +131,7 @@ public class Board extends JPanel {
 
         g.setColor(Color.black);
         g.fillRect(0, 0, d.width, d.height);
-        g.setColor(Color.green);
+        g.setColor(Color.GREEN);
 
         if (this.inGame) {
 
@@ -159,26 +157,22 @@ public class Board extends JPanel {
 
     private void gameOver(Graphics g) {
 
-        if (this.message.equalsIgnoreCase(Commons.MESSAGE_WON)){
-            g.setColor(Color.BLUE);
-        }else {
-            g.setColor(Color.RED);
-        }
-
+        g.setColor(Color.BLACK);
         g.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
 
         g.setColor(new Color(0, 32, 48));
-        g.fillRect(50, Commons.BOARD_WIDTH / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
+        g.fillRect(50, Commons.BOARD_HEIGHT / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
+
         g.setColor(Color.white);
-        g.drawRect(50, Commons.BOARD_WIDTH / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
+        g.drawRect(50, Commons.BOARD_HEIGHT / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
 
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics fontMetrics = this.getFontMetrics(small);
 
         g.setColor(Color.white);
         g.setFont(small);
-        g.drawString(this.message, (Commons.BOARD_WIDTH - fontMetrics.stringWidth(this.message)) / 2,
-                Commons.BOARD_WIDTH / 2);
+        g.drawString(this.message, (Commons.BOARD_WIDTH - fontMetrics.stringWidth(this.message)) / 2,Commons.BOARD_HEIGHT / 2);
+
     }
 
     private void update() {
